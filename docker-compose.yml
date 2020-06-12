@@ -6,21 +6,25 @@
        dockerfile: jenkins.dockerfile
      ports:
        # Only map port 8080 for web access
-       # port 50000 is only required for JNLP slave connections, we prefer SSH
+       # Port 50000 is only required for JNLP slave connections, prefer SSH
        - "8080:8080"
      volumes:
        - jenkins_home:/var/jenkins_home
-       # Do not mount a single file, because changes might propagate correctly when the container is running 
+       # Do not mount a single file, because changes might not propagate correctly when the container is running 
        # https://github.com/moby/moby/issues/15793 (For a detailed explanation)
        - ./casc_conf:/var/jenkins_conf/
      secrets:
        - admin_pw # ONLY FOR TESTING5
+       - github_deploy_key # Access to this github repo
      environment:
+       # Set location of JCasC yaml files
        - CASC_JENKINS_CONFIG=/var/jenkins_conf
 
   # Make sure there are no newlines at the end of the secret files
  secrets: 
    admin_pw:
      file: /var/deploy/secrets/admin_pw
+   github_deploy_key:
+    file: /var/deploy/secrets/github_deploy_key
  volumes:
    jenkins_home:
