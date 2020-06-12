@@ -14,7 +14,7 @@
        # https://github.com/moby/moby/issues/15793 (For a detailed explanation)
        - ./casc_conf:/var/jenkins_conf/
      secrets:
-       - admin_pw # ONLY FOR TESTING
+       - admin_pw # ONLY FOR TESTING5
      environment:
        - CASC_JENKINS_CONFIG=/var/jenkins_conf
 

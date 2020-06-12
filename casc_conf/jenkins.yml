@@ -1,0 +1,14 @@
+jenkins:
+  systemMessage: "CI Jenkins instance automatically configured with Configuration as Code"
+  numExecutors: 4
+  scmCheckoutRetryCount: 2
+  mode: NORMAL
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: demoAdmin
+         password: ${admin_pw:-passw0rd}
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
