@@ -15,7 +15,7 @@
        - ./casc_conf:/var/jenkins_conf/
      secrets:
        - admin_pw # ONLY FOR TESTING5
-       - github_deploy_key # Access to this github repo
+       - github_personal_access_token # Access to this github repo
      environment:
        # Set location of JCasC yaml files
        - CASC_JENKINS_CONFIG=/var/jenkins_conf
@@ -24,7 +24,7 @@
  secrets: 
    admin_pw:
      file: /var/deploy/secrets/admin_pw
-   github_deploy_key:
-    file: /var/deploy/secrets/github_deploy_key
+   github_personal_access_token:
+    file: /var/deploy/secrets/github_personal_access_token
  volumes:
    jenkins_home:
