@@ -1,3 +1,5 @@
 configuration-as-code:1.41
 job-dsl:1.77
 blueocean:1.23.2
+ssh-credentials:1.18.1
+rebuild:1.31
